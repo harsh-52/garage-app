@@ -24,7 +24,7 @@ function AddEntry() {
   return (
     <div
       style={{
-        marginTop: "-13px", // Leaves space for fixed navbar
+        marginTop: "-63px", // Leaves space for fixed navbar
         width: "100%",
         minHeight: "calc(100vh - 130px)",
         backgroundColor: "#f8f9fa",
