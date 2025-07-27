@@ -4,24 +4,30 @@ import "./Navbar.css";
 
 function Navbar() {
   return (
-    <nav className="sidebar bg-dark text-white d-flex flex-column vh-100 p-3">
-      <h2 className="brand text-white mb-4">Krishna Auto Mobiles</h2>
+    <>
+      {/* Top Nav Bar */}
+      <nav className="topbar bg-dark text-white d-flex justify-content-between align-items-center p-3">
+        <h2 className="brand text-white m-0">Krishna Auto Mobiles</h2>
+      </nav>
 
-      <Link className="nav-item" to="/">
-        <Home size={20} />
-        <span className="label">Home</span>
-      </Link>
+      {/* Floating Action Buttons */}
+      <div className="floating-nav d-flex gap-3">
+        <Link className="floating-btn" to="/">
+          <Home size={20} />
+          <span>Home</span>
+        </Link>
 
-      <Link className="nav-item" to="/add">
-        <PlusCircle size={20} />
-        <span className="label">Add Entry</span>
-      </Link>
+        <Link className="floating-btn" to="/add">
+          <PlusCircle size={20} />
+          <span>Add</span>
+        </Link>
 
-      <Link className="nav-item" to="/view">
-        <List size={20} />
-        <span className="label">View Entries</span>
-      </Link>
-    </nav>
+        <Link className="floating-btn" to="/view">
+          <List size={20} />
+          <span>View</span>
+        </Link>
+      </div>
+    </>
   );
 }
 

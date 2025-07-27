@@ -1,37 +1,120 @@
-import { useState } from 'react';
-import { addEntry } from '../../dataService';
+import { useState } from "react";
+import { addEntry } from "../../dataService";
 
 function AddEntry() {
   const [formData, setFormData] = useState({
-    name: '',
-    mobile: '',
-    vehicle: '',
-    service: '',
-    date: ''
+    name: "",
+    mobile: "",
+    vehicle: "",
+    service: "",
+    date: "",
   });
 
   const handleChange = (e) => {
-    setFormData(prev => ({ ...prev, [e.target.name]: e.target.value }));
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
     addEntry(formData);
-    alert('Entry added!');
-    setFormData({ name: '', mobile: '', vehicle: '', service: '', date: '' });
+    alert("Entry added!");
+    setFormData({ name: "", mobile: "", vehicle: "", service: "", date: "" });
   };
 
   return (
-    <div className="container mt-4">
-      <h2>Add New Entry</h2>
-      <form onSubmit={handleSubmit}>
-        <input className="form-control mb-2" name="name" placeholder="Customer Name" value={formData.name} onChange={handleChange} required />
-        <input className="form-control mb-2" name="mobile" placeholder="Mobile Number" value={formData.mobile} onChange={handleChange} required />
-        <input className="form-control mb-2" name="vehicle" placeholder="Vehicle Number" value={formData.vehicle} onChange={handleChange} required />
-        <input className="form-control mb-2" name="service" placeholder="Service Type" value={formData.service} onChange={handleChange} required />
-        <input className="form-control mb-3" type="date" name="date" value={formData.date} onChange={handleChange} required />
-        <button className="btn btn-primary" type="submit">Add Entry</button>
-      </form>
+    <div
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        backgroundColor: "#f8f9fa", // Optional background
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        padding: "1rem",
+        zIndex: 999, // Ensure it's on top
+      }}
+    >
+      <div
+        className="card shadow-sm p-3 p-md-4 rounded-4 w-100"
+        style={{
+          maxWidth: "500px",
+          maxHeight: "100%",
+          overflowY: "auto",
+          paddingBottom: "100px",
+        }}
+      >
+        <h2 className="text-center mb-4">Add New Entry</h2>
+        <form onSubmit={handleSubmit}>
+          <div className="mb-3">
+            <label className="form-label">Customer Name</label>
+            <input
+              className="form-control"
+              name="name"
+              placeholder="e.g. Rahul Sharma"
+              value={formData.name}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label">Mobile Number</label>
+            <input
+              className="form-control"
+              name="mobile"
+              placeholder="e.g. 9876543210"
+              value={formData.mobile}
+              onChange={handleChange}
+              required
+              pattern="[0-9]{10}"
+              maxLength={10}
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label">Vehicle Number</label>
+            <input
+              className="form-control"
+              name="vehicle"
+              placeholder="e.g. MH12AB1234"
+              value={formData.vehicle}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label">Service Type</label>
+            <input
+              className="form-control"
+              name="service"
+              placeholder="e.g. Oil Change"
+              value={formData.service}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="mb-3">
+            <label className="form-label">Service Date</label>
+            <input
+              type="date"
+              className="form-control"
+              name="date"
+              value={formData.date}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <button className="btn btn-primary w-100" type="submit">
+            Add Entry
+          </button>
+        </form>
+      </div>
     </div>
   );
 }
