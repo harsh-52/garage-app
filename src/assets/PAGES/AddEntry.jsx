@@ -25,7 +25,7 @@ function AddEntry() {
     <div
       style={{
         position: "fixed",
-        top: 0,
+        top: "130px",
         left: 0,
         width: "100vw",
         height: "100vh",
@@ -41,9 +41,8 @@ function AddEntry() {
         className="card shadow-sm p-3 p-md-4 rounded-4 w-100"
         style={{
           maxWidth: "500px",
-          maxHeight: "100%",
+          maxHeight: "130%",
           overflowY: "auto",
-          paddingBottom: "100px",
         }}
       >
         <h2 className="text-center mb-4">Add New Entry</h2>
