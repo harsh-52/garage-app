@@ -24,25 +24,20 @@ function AddEntry() {
   return (
     <div
       style={{
-        position: "fixed",
-        top: "130px",
-        left: 0,
-        width: "100vw",
-        height: "100vh",
-        backgroundColor: "#f8f9fa", // Optional background
+        marginTop: "30px", // Leaves space for fixed navbar
+        width: "100%",
+        minHeight: "calc(100vh - 130px)",
+        backgroundColor: "#f8f9fa",
         display: "flex",
         justifyContent: "center",
-        alignItems: "center",
+        alignItems: "flex-start", // Top align
         padding: "1rem",
-        zIndex: 999, // Ensure it's on top
       }}
     >
       <div
         className="card shadow-sm p-3 p-md-4 rounded-4 w-100"
         style={{
           maxWidth: "500px",
-          maxHeight: "130%",
-          overflowY: "auto",
         }}
       >
         <h2 className="text-center mb-4">Add New Entry</h2>
